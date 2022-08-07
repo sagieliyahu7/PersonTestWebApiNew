@@ -11,6 +11,7 @@ AS
 SELECT * FROM Persons
 GO;
 
+
 CREATE PROCEDURE GetSpecificPersonById
 @IdNum nvarchar(9)
 AS
@@ -18,10 +19,22 @@ SELECT * FROM Persons
 WHERE @IdNum = IdNum 
 GO;
 
+CREATE PROCEDURE DeleteData
+AS
+DELETE FROM Persons
+GO;
+
+CREATE PROCEDURE DeleteSpecificPersonById
+@IdNum nvarchar(9)
+AS
+DELETE FROM Persons
+WHERE @IdNum = IdNum 
+GO;
+
 CREATE PROCEDURE AddPerson
 @IdNum varchar(9),
 @FullName varchar(20),
-@BirthDate date,
+@BirthDate date
 AS
 IF NOT EXISTS
         (

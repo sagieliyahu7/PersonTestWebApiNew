@@ -70,5 +70,20 @@ namespace AngularNetCoreWebApi.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("deleteData")]
+        public ActionResult DeleteData()
+        {
+            try
+            {
+                System.IO.File.WriteAllText(personFilePath, string.Empty);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }
