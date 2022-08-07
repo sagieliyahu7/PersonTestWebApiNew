@@ -13,7 +13,8 @@ namespace PersonTestWebApi.Models
         [Required]
         public DateTime? BirthDate { get; set; }
         [IsraeliIdValidation]
+        [RegularExpression("^[0-9]+$")]
         [Required]
-        public int? IdNum { get; set; }
+        public string IdNum { get; set; } // it's for saving leading zero
     }
 }
